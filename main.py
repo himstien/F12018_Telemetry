@@ -7,7 +7,8 @@ from PyQt5.QtWidgets import *
  
 # This is our window from QtCreator
 import mainwindow_auto
- 
+import socket
+
 # create class for our Raspberry Pi GUI
 class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 # access variables inside of the UI's file
@@ -18,6 +19,15 @@ class MainWindow(QMainWindow, mainwindow_auto.Ui_MainWindow):
 # I feel better having one of these
 def main():
  # a new app instance
+	UDP_IP = "127.0.0.1"
+	UDP_PORT = 20777
+	 
+	sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+	sock.bind((UDP_IP, UDP_PORT))
+	while True:
+		data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+		print ("received message:", data)
+	 
 	app = QApplication(sys.argv)
 	form = MainWindow()
 	form.show()
