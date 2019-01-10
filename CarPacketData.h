@@ -1,3 +1,5 @@
+#ifndef CARPACKET_H
+#define CARPACKET_H
 
 class CarMotionData
 {
@@ -8,12 +10,12 @@ public:
     float         m_worldVelocityX;           // Velocity in world space X
     float         m_worldVelocityY;           // Velocity in world space Y
     float         m_worldVelocityZ;           // Velocity in world space Z
-    int16         m_worldForwardDirX;         // World space forward X direction (normalised)
-    int16         m_worldForwardDirY;         // World space forward Y direction (normalised)
-    int16         m_worldForwardDirZ;         // World space forward Z direction (normalised)
-    int16         m_worldRightDirX;           // World space right X direction (normalised)
-    int16         m_worldRightDirY;           // World space right Y direction (normalised)
-    int16         m_worldRightDirZ;           // World space right Z direction (normalised)
+    int16_t       m_worldForwardDirX;         // World space forward X direction (normalised)
+    int16_t       m_worldForwardDirY;         // World space forward Y direction (normalised)
+    int16_t         m_worldForwardDirZ;         // World space forward Z direction (normalised)
+    int16_t         m_worldRightDirX;           // World space right X direction (normalised)
+    int16_t         m_worldRightDirY;           // World space right Y direction (normalised)
+    int16_t         m_worldRightDirZ;           // World space right Z direction (normalised)
     float         m_gForceLateral;            // Lateral G-Force component
     float         m_gForceLongitudinal;       // Longitudinal G-Force component
     float         m_gForceVertical;           // Vertical G-Force component
@@ -21,8 +23,8 @@ public:
     float         m_pitch;                    // Pitch angle in radians
     float         m_roll;                     // Roll angle in radians
 
-    CarMotionData convertBytesToObject();
-    CarMotionData CarMotionData(bytes* );
+    CarMotionData convertBytesToObject(char*);
+    CarMotionData(char* );
 };
 
 class PacketMotionData
@@ -50,6 +52,8 @@ public:
     float         m_angularAccelerationZ;        // Angular velocity z-component
     float         m_frontWheelsAngle;            // Current front wheels angle in radians
 
-    PacketMotionData convertBytesToObject();
-    PacketMotionData PacketMotionData(bytes* );
+    PacketMotionData convertBytesToObject(char);
+    PacketMotionData(char* );
 };
+
+#endif

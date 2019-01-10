@@ -13,8 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    PacketHeader.cpp \
+    cartelemetrydatapacket.cpp \
+    bytestodatatypehelper.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    PacketHeader.h \
+    bytesToDataTypeHelper.h \
+    CarPacketData.h \
+    CarTelemetryDataPacket.h \
+    bytestodatatypehelper.h
 
 FORMS    += mainwindow.ui
