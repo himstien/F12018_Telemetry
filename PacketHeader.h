@@ -1,3 +1,6 @@
+#ifndef PACKETHEADER_H
+#define PACKETHEADER_H
+
 #include <cstdint>
 
 class PacketHeader
@@ -11,7 +14,11 @@ public:
     uint8_t      m_frameIdentifier;      // Identifier for the frame the data was retrieved on
     uint8_t     m_playerCarIndex;       // Index of player's car in the array
 
-    void convertBytesToObject(char*);
-    PacketHeader(char*);
+    int indexInput;
+
+    void convertBytesToObject(char*, int);
+    PacketHeader(char*, int);
     PacketHeader(){};
 };
+
+#endif
